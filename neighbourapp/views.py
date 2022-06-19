@@ -61,3 +61,21 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'neighbour/search.html',{"message":message})
+
+def post(request):
+  current_user = request.user
+
+  if request.method == 'POST':
+    upload_post = PostForm(request.POST, request.FILES)
+
+    if upload_post.is_valid():
+      post = upload_post.save(commit=False)
+      post.profile = current_user.profile
+      post.neighbourhood = current_user.profile.neighbourhood
+      post.save()
+
+      return redirect('index')
+  else :
+      upload_post = PostForm()
+
+  return render(request ,'neighbour/post.html', {"form":upload_post})
