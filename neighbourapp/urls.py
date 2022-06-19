@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns=[
-  path('home/', views.index , name="index"),
+  path('home', views.index , name="index"),
   re_path(r'^register-neighbourhood/', views.upload_neighbourhood, name="upload"),
   re_path(r'^register-business/', views.add_business, name="add-business"),
   path('', views.profile, name="profile"),
@@ -14,4 +14,5 @@ urlpatterns=[
 ]
 
 if settings.DEBUG:
+    
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
