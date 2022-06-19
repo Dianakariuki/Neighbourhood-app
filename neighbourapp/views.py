@@ -79,3 +79,22 @@ def post(request):
       upload_post = PostForm()
 
   return render(request ,'neighbour/post.html', {"form":upload_post})
+
+def upload_neighbourhood(request):
+  current_user = request.user
+
+  if request.method == 'POST':
+    upload_neighbourhood = NeighbourhoodForm(request.POST,request.FILES)
+  
+    if upload_neighbourhood.is_valid():
+      neighbourhood = upload_neighbourhood.save(commit=False)
+      neighbourhood.occupants_count = 500000
+      neighbourhood.user = current_user
+      neighbourhood.save()
+
+      return redirect('profile')
+  
+  else:
+    upload_neighbourhood = NeighbourhoodForm()
+
+  return render (request,'neighbour/register-neighbourhood.html', {"form" : upload_neighbourhood })
