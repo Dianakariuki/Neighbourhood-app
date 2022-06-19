@@ -1,0 +1,73 @@
+{%extends 'neighbour/base.html'%}
+{% load bootstrap4 %}
+
+{% block content%}
+{% if user.profile.name %}
+  <h1 class = "text-center pt-5 mt-5"> My Profile</h1>
+  <div class="container  d-flex justify-content-center align-items-center">
+    <div class="card">
+        <div class="upper"> <img src="https://i.imgur.com/Qtrsrk5.jpg" class="img-fluid"> </div>
+        <div class="user text-center">
+            <div class="profile"> <img src="{{user.profile.photo.url}}" class="rounded-circle" width="80"> </div>
+        </div>
+        <div class="mt-5 text-center">
+            <h4 class="mb-0">{{user.profile.user.username}}</h4> <span class="text-muted d-block mb-2">{{profile.name}}</span>
+            <p class="text-center">{{user.profile.bio}}</p>
+            <button  data-toggle="modal" data-target="#exampleModal1" class="btn btn-dark btn-sm follow">Contact</button>
+        </div>
+
+
+          <!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Contact information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         {{user.profile.profile_email}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of modal -->
+          <div class="d-flex justify-content-between align-items-center mt-4 px-4">
+              <div class="stats">
+                  <h6 class="mb-0"><strong>Neighbourhood</strong></h6> <span>{{user.profile.neighbourhood.neighbourhood_name}}</span>
+              </div>
+              <div class="stats mb-2">
+                  <h6 class="mb-0"><strong>Location</strong></h6> <span>{{user.profile.location}}</span>
+              </div>
+          </div>
+      </div>
+
+ </div>
+
+ <p class="text-center pt-5"> Go to <strong><a style="color: red;" href="/home">My Neighbourhood</a></strong></p>
+{% else %}
+<p class= " pt-3 text-center loud"> Welcome <strong>{{user.username}}</strong>. Please create your profile for us to place you in the most appropriate Neighbourhood. </p>
+<!-- where we render our form -->
+<h1 class= text-center> Create profile</h1>
+<div class="card m-auto" style="width:30rem">
+  <div class="card-title">
+   
+    <form action="{% url 'profile' %}" method="POST"  enctype="multipart/form-data" >
+       {% csrf_token %}
+       {% bootstrap_form form  %}
+       <p class ="text-center pt-3">Is your neighbourood unavailable on the list? Create one <a href="{% url 'upload'%}">Here</a></p>
+          <input type="submit">
+    </form>
+  </div>
+</div>
+
+
+
+{% endif %}
+{% endblock %}
