@@ -3,8 +3,8 @@ from locale import currency
 from django.shortcuts import render , redirect
 from django.contrib.auth.decorators import login_required
 from django.db import transaction
-import neighbour
-from neighbour.models import Posts, Profile , Business ,Neighbourhood
+import neighbourapp
+from neighbourapp.models import Posts, Profile , Business ,Neighbourhood
 from .forms import PostForm, ProfileForm , NeighbourhoodForm , BusinessForm
 from django.contrib import messages
 
@@ -98,3 +98,4 @@ def upload_neighbourhood(request):
     upload_neighbourhood = NeighbourhoodForm()
 
   return render (request,'neighbour/register-neighbourhood.html', {"form" : upload_neighbourhood })
+
