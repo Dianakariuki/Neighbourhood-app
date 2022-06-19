@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'neighbourapp'
+    'bootstrap4'
 ]
 
 MIDDLEWARE = [
