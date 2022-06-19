@@ -99,3 +99,21 @@ def upload_neighbourhood(request):
 
   return render (request,'neighbour/register-neighbourhood.html', {"form" : upload_neighbourhood })
 
+def add_business(request):
+  current_user = request.user
+
+  if request.method == 'POST':
+    upload_business = BusinessForm(request.POST,request.FILES)
+  
+    if upload_business.is_valid():
+      business = upload_business.save(commit=False)
+      business.profile = current_user.profile
+      business.neighbourhood = current_user.profile.neighbourhood
+      business.save()
+
+      return redirect('index')
+  
+  else:
+    upload_business = BusinessForm()
+
+  return render (request,'neighbour/add-business.html', {"form" : upload_business })

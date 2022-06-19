@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'neighbourapp'
-    'bootstrap4'
+    'neighbourapp',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [

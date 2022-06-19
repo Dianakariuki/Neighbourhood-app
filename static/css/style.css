@@ -1,0 +1,19 @@
+.navbar{
+  color: black;
+}
+.logo p{
+  font-family: 'Cabin Sketch', cursive;
+  color: white;
+}
+.business{
+  height: auto;
+  width:  auto;
+  position: fixed;
+  border: black;
+  border-radius: 10px;
+  box-shadow: cadetblue 10px;
+  padding: 10px;
+}
+.neighbours{
+  position: fixed;
+}
