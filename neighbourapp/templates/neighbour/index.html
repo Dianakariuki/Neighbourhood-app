@@ -2,10 +2,8 @@
 {% load bootstrap4 %}
 {% block content %}
 
-
- 
     {% if user.profile.neighbourhood.neighbourhood_name %}
-      <h2 class="text-center pl-5 ml-5 mt-3"> Welcome to your neighbourhood <strong>{{user.profile.neighbourhood.neighbourhood_name}}</strong> </h2><br>
+      <h2 class="text-center pl-5 ml-5 mt-3" style="font-family:Georgia, 'Times New Roman', Times, serif; font-weight: bolder;"> Welcome to your neighbourhood <strong>{{user.profile.neighbourhood.neighbourhood_name}}</strong> </h2><br>
      <div class="d-flex justify-content-center">
       <button class="btn btn-dark"><a  style="color: white; display: block; "href="{% url 'post'%}">Post in my neighbourhood ?</a></button>
      </div>
@@ -14,7 +12,7 @@
   <div class="col-md-3">
       {% if myneighbours %}
       <div class="mt-5  neighbours">
-        <h2 class="text-center">List of people in {{user.profile.neighbourhood.neighbourhood_name}} </h2>
+        <h2 class="text-center"style="font-family:Georgia, 'Times New Roman', Times, serif; font-weight:medium;" >List of people in {{user.profile.neighbourhood.neighbourhood_name}} </h2>
        {% for neighbour in myneighbours %}
 
        <div class="card mt-5" style="height: auto;border: black;">
@@ -64,11 +62,11 @@
           
        <div class="business">
         {% if businesses %}
-        <h2 class="mt-5 mb-3">Businesses in {{user.profile.neighbourhood.neighbourhood_name}}</h2>
+        <h2 class="mt-5 mb-3" style="font-family:Georgia, 'Times New Roman', Times, serif; font-weight:medium;">Businesses in {{user.profile.neighbourhood.neighbourhood_name}}</h2>
         {% for business in businesses %}
           <div class="card" style="border:none">
             <h4 class="text-center">{{business.business_name}}</h4>
-            <p  class="text-center"> email : <span style="color: blue; text-decoration: underline;">{{business.business_email}}</span></p>
+            <p  class="text-center"style="font-family:Georgia, 'Times New Roman', Times, serif; font-weight:bold;"> EMAIL : <span style="color: blue; text-decoration: underline ;font-family:Georgia, 'Times New Roman', Times, serif; font-weight:bold;">{{business.business_email}}</span></p>
           </div>
          
         {% endfor %}

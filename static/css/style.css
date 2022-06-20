@@ -1,5 +1,9 @@
+body{
+  
+background-image:url("/media/neig.jpg");
+}
 .navbar{
-  color: black;
+  color: rgb(211, 44, 44);
 }
 .logo p{
   font-family: 'Cabin Sketch', cursive;
@@ -16,7 +20,4 @@
 }
 .neighbours{
   position: fixed;
-}
-body{
- 
 }
