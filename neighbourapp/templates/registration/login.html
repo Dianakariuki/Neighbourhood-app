@@ -1,22 +1,29 @@
 {%extends "registration/base.html"%}
 {% load bootstrap4 %}
 {% block content %}
- 
 
 
-  <div class="background">
-      <div class="shape"></div>
-      <div class="shape"></div>
-  </div>
+  <div class="container-fluid">
   
+<!--     
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div> -->
+
+<!--        
+  <div class="card mt-3" style="width: 25rem; height: 35rem; ">
+    <div class="card-body"> -->
+
+      
 
   <form   style="height: auto;" action="/accounts/login/" method="post">
     <div class =" ml-5 pl-5 pb-3  logo pt-3">
       <img  class = "ml-3" src="https://img.icons8.com/ios-filled/50/ffffff/homeadvisor.png"/>
-      <p>Neighbourhood</p>
+      <p style="color: black;">Neighbourhood </p>
     </div>
         
-    <h3>Login Here</h3>
+    <h3 id="lol">Login Here</h3>
       {% if form.errors %}
         <p> Password or Username is incorrect </p>
       {% endif %}
@@ -28,10 +35,18 @@
         </div>
 
         <input type="hidden" name="next" value="{{next}}">
+       
       <div class="social">
         <p>Don't have an account? <a href='/accounts/register/'>Sign Up</a></p>
       </div>
+       
   </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>
 

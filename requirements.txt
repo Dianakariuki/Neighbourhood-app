@@ -8,3 +8,4 @@ Pillow==9.1.1
 psycopg2==2.9.3
 soupsieve==2.3.2.post1
 sqlparse==0.4.2
+whitenoise==6.0.0
